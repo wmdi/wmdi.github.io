@@ -1,0 +1,248 @@
+diff --git a/_config.yml b/_config.yml
+index d2e99a88..1da3e705 100644
+--- a/_config.yml
++++ b/_config.yml
+@@ -12,18 +12,18 @@
+ 
+ # theme                  : "minimal-mistakes-jekyll"
+ # remote_theme           : "mmistakes/minimal-mistakes"
+-minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
++minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+ 
+ # Site Settings
+ locale                   : "en-US"
+-title                    : "Mengdi Wu"
++title                    : "Site Title"
+ title_separator          : "-"
+ subtitle                 : # site tagline that appears below site title in masthead
+-name                     : "Mengdi Wu"
+-description              : "Senior student at Tsinghua University"
+-url                      : "https://wmdi.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
++name                     : "Your Name"
++description              : "An amazing website."
++url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+ baseurl                  : # the subpath of your site, e.g. "/blog"
+-repository               : "wmdi/minimal-mistakes" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
++repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+ teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+ logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+ masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
+@@ -104,30 +104,52 @@ analytics:
+ 
+ # Site Author
+ author:
+-  name             : "Mengdi Wu"
+-  avatar           : "/assets/images/bio.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+-  bio              : "Senior student at Tsinghua University"
+-  location         : "Beijing, China"
++  name             : "Your Name"
++  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
++  bio              : "I am an **amazing** person."
++  location         : "Somewhere"
+   email            :
+   links:
+     - label: "Email"
+       icon: "fas fa-fw fa-envelope-square"
+-      url: "mailto:wmd19@mails.tsinghua.edu.cn"
++      # url: "mailto:your.name@email.com"
+     - label: "Website"
+       icon: "fas fa-fw fa-link"
+-      url: "https://wmdi.github.io"
++      # url: "https://your-website.com"
++    - label: "Twitter"
++      icon: "fab fa-fw fa-twitter-square"
++      # url: "https://twitter.com/"
++    - label: "Facebook"
++      icon: "fab fa-fw fa-facebook-square"
++      # url: "https://facebook.com/"
+     - label: "GitHub"
+       icon: "fab fa-fw fa-github"
+-      url: "https://github.com/"
++      # url: "https://github.com/"
++    - label: "Instagram"
++      icon: "fab fa-fw fa-instagram"
++      # url: "https://instagram.com/"
+ 
++# Site Footer
+ footer:
+   links:
++    - label: "Twitter"
++      icon: "fab fa-fw fa-twitter-square"
++      # url:
++    - label: "Facebook"
++      icon: "fab fa-fw fa-facebook-square"
++      # url:
+     - label: "GitHub"
+       icon: "fab fa-fw fa-github"
+       # url:
+     - label: "GitLab"
+       icon: "fab fa-fw fa-gitlab"
+       # url:
++    - label: "Bitbucket"
++      icon: "fab fa-fw fa-bitbucket"
++      # url:
++    - label: "Instagram"
++      icon: "fab fa-fw fa-instagram"
++      # url:
+ 
+ 
+ # Reading Files
+diff --git a/_data/navigation.yml b/_data/navigation.yml
+index a32874f5..6f30866f 100644
+--- a/_data/navigation.yml
++++ b/_data/navigation.yml
+@@ -1,12 +1,9 @@
+ # main links
+ main:
+-  # - title: "Publications"
+-  #   url: /publication/
+-  # - title: "CV"
+-  # - title: "Quick-Start Guide"
+-  #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+-  - title: "About"
+-    url: https://mmistakes.github.io/minimal-mistakes/about/
++  - title: "Quick-Start Guide"
++    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
++  # - title: "About"
++  #   url: https://mmistakes.github.io/minimal-mistakes/about/
+   # - title: "Sample Posts"
+   #   url: /year-archive/
+   # - title: "Sample Collections"
+diff --git a/_includes/author-profile.html b/_includes/author-profile.html
+index d6b649a3..e256ec7d 100644
+--- a/_includes/author-profile.html
++++ b/_includes/author-profile.html
+@@ -5,12 +5,16 @@
+ 
+   {% if author.avatar %}
+     <div class="author__avatar">
+-      <img src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" itemprop="image" class="u-photo">
++      <a href="{{ author.home | default: '/' | absolute_url }}">
++        <img src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" itemprop="image" class="u-photo">
++      </a>
+     </div>
+   {% endif %}
+ 
+   <div class="author__content">
+-    <h3 class="author__name p-name" itemprop="name"> {{ author.name }} </h3>
++    <h3 class="author__name p-name" itemprop="name">
++      <a class="u-url" rel="me" href="{{ author.home | default: '/' | absolute_url }}" itemprop="url">{{ author.name }}</a>
++    </h3>
+     {% if author.bio %}
+       <div class="author__bio p-note" itemprop="description">
+         {{ author.bio | markdownify }}
+diff --git a/_includes/head/custom.html b/_includes/head/custom.html
+index ca418b3d..978d84fd 100644
+--- a/_includes/head/custom.html
++++ b/_includes/head/custom.html
+@@ -2,6 +2,4 @@
+ 
+ <!-- insert favicons. use https://realfavicongenerator.net/ -->
+ 
+-<link rel="icon" type="image/png" href="assets/images/icon.png" />
+-
+ <!-- end custom head snippets -->
+diff --git a/_layouts/home.html b/_layouts/home.html
+index a993b818..02e96eb8 100644
+--- a/_layouts/home.html
++++ b/_layouts/home.html
+@@ -6,8 +6,6 @@ layout: archive
+ 
+ <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+ 
+-{% include  %}
+-
+ {% if paginator %}
+   {% assign posts = paginator.posts %}
+ {% else %}
+diff --git a/_pages/about.md b/_pages/about.md
+deleted file mode 100644
+index 2c8f132e..00000000
+--- a/_pages/about.md
++++ /dev/null
+@@ -1,10 +0,0 @@
+----
+-permalink: /about/
+-title: "About me"
+-excerpt: "About me"
+-author_profile: true
+-redirect_from: 
+-  - /about.html
+----
+-
+-I am a senior student from [Yao Class](https://iiis.tsinghua.edu.cn/en/yaoclass/) at [Tsinghua University](https://www.tsinghua.edu.cn/en/). I have a broad interest in computer systems and compilers, especially for emerging applications. My current research focuses on optimizing distributed DL training.
+\ No newline at end of file
+diff --git a/_pages/home.md b/_pages/home.md
+deleted file mode 100644
+index bb87e9ff..00000000
+--- a/_pages/home.md
++++ /dev/null
+@@ -1,8 +0,0 @@
+----
+-layout: archive
+-permalink: /
+-hidden: true
+-excerpt: "abc"
+----
+-
+-ABC
+diff --git a/_sass/minimal-mistakes/_sidebar.scss b/_sass/minimal-mistakes/_sidebar.scss
+index 05e9374f..02b455b4 100644
+--- a/_sass/minimal-mistakes/_sidebar.scss
++++ b/_sass/minimal-mistakes/_sidebar.scss
+@@ -19,7 +19,7 @@
+   @include breakpoint($large) {
+     float: left;
+     width: calc(#{$right-sidebar-width-narrow} - 1em);
+-    opacity: 1;
++    opacity: 0.75;
+     -webkit-transition: opacity 0.2s ease-in-out;
+     transition: opacity 0.2s ease-in-out;
+ 
+@@ -134,7 +134,7 @@
+   }
+ 
+   img {
+-    max-width: 350px;
++    max-width: 110px;
+     border-radius: 50%;
+ 
+     @include breakpoint($large) {
+@@ -158,6 +158,10 @@
+     padding-right: 0;
+   }
+ 
++  a {
++    color: inherit;
++    text-decoration: none;
++  }
+ }
+ 
+ .author__name {
+diff --git a/assets/images/M_resized.png:Zone.Identifier b/assets/images/M_resized.png:Zone.Identifier
+deleted file mode 100644
+index 60f0f978..00000000
+--- a/assets/images/M_resized.png:Zone.Identifier
++++ /dev/null
+@@ -1,3 +0,0 @@
+-[ZoneTransfer]
+-LastWriterPackageFamilyName=Microsoft.Windows.Photos_8wekyb3d8bbwe
+-ZoneId=3
+diff --git a/assets/images/bio.jpg b/assets/images/bio.jpg
+deleted file mode 100644
+index 6749ec99..00000000
+Binary files a/assets/images/bio.jpg and /dev/null differ
+diff --git a/assets/images/icon.png b/assets/images/icon.png
+deleted file mode 100644
+index 74c95d0e..00000000
+Binary files a/assets/images/icon.png and /dev/null differ
+diff --git a/index.html b/index.html
+index 98d8242c..b95bb1f5 100644
+--- a/index.html
++++ b/index.html
+@@ -2,5 +2,3 @@
+ layout: home
+ author_profile: true
+ ---
+-
+-<p>This text should appear above the recent posts.</p>
