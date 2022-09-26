@@ -2,7 +2,7 @@
 layout: splash
 permalink: /
 hidden: true
-excerpt: "abc"     
+excerpt: "abc"
 ---
 
 ABC
