@@ -2,8 +2,8 @@
 main:
   # - title: "Publications"
   #   url: /publication/
-  - title: "CV"
-    url: /cv/
+  # - title: "CV"
+  #   url: /cv/
   # - title: "Quick-Start Guide"
   #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   # - title: "About"
