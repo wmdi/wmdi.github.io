@@ -106,7 +106,7 @@ analytics:
 author:
   name             : 
   avatar           : "/assets/images/bio.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Senior student at Tsinghua University"
+  bio              : "Undergraduate, Tsinghua University"
   location         : "Beijing, China"
   email            :
   links:
