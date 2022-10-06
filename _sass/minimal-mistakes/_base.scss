@@ -61,6 +61,7 @@ h6 {
 small,
 .small {
   font-size: $type-size-6;
+  font-weight: lighter;
 }
 
 p, li {
@@ -180,6 +181,34 @@ ol li {
 li ul,
 li ol {
   margin-top: 0.5em;
+}
+
+/* projects */
+
+.project__ {
+  ul {
+    padding-left: 0;
+  }
+  ul li {
+    list-style: none;
+  }
+}
+
+.project__title {
+  font-size: 19px;
+  font-family: $serif;
+}
+
+.project__author {
+  font-family: $sans-serif;
+  font-size: 16px;
+}
+
+.project__publish {
+  font-family: $sans-serif;
+  font-weight: lighter;
+  font-size: 16px;
+  font-style: italic;
 }
 
 /*

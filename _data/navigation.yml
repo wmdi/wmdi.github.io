@@ -1,7 +1,7 @@
 # main links
 main:
-  - title: "Publications"
-    url: /publication/
+  # - title: "Publications"
+  #   url: /publication/
   # - title: "CV"
   #   url: /cv/
   # - title: "Quick-Start Guide"
