@@ -212,6 +212,17 @@ li ol {
   padding-bottom: 1em;
 }
 
+.award__ {
+  ul {
+    padding-left: 0;
+  }
+  ul li {
+    list-style: disc;
+  }
+  font-size: 19px;
+  font-family: $serif;
+}
+
 /*
    Media and embeds
    ========================================================================== */
