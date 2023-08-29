@@ -107,7 +107,7 @@ author:
   name             : 
   avatar           : "/assets/images/bio.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "PhD, Carnegie Mellon University"
-  location         : "Beijing, China"
+  location         : "Pittsburgh"
   email            :
   links:
     - label: "Email"
@@ -115,7 +115,7 @@ author:
       url: "mailto:mengdiwu@andrew.cmu.edu"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
+      url: "https://github.com/wmdi"
 
 footer:
   links:
